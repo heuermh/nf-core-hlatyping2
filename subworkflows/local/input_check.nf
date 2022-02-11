@@ -24,6 +24,7 @@ workflow INPUT_CHECK {
 def create_fastq_channels(LinkedHashMap row) {
     def meta = [:]
     meta.id           = row.sample
+    meta.seq_type     = row.seq_type
     meta.single_end   = row.single_end.toBoolean()
 
     def array = []
