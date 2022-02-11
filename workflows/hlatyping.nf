@@ -49,6 +49,9 @@ include { INPUT_CHECK } from '../subworkflows/local/input_check'
 include { FASTQC                      } from '../modules/nf-core/modules/fastqc/main'
 include { MULTIQC                     } from '../modules/nf-core/modules/multiqc/main'
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from '../modules/nf-core/modules/custom/dumpsoftwareversions/main'
+include { OPTITYPE                    } from '../modules/nf-core/modules/optitype/main'
+include { YARA_INDEX                  } from '../modules/nf-core/modules/yara/index/main'
+include { YARA_MAPPER                 } from '../modules/nf-core/modules/yara/mapper/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,6 +81,10 @@ workflow HLATYPING {
         INPUT_CHECK.out.reads
     )
     ch_versions = ch_versions.mix(FASTQC.out.versions.first())
+
+    //YARA_INDEX()
+    //YARA_MAPPER()
+    OPTITYPE(INPUT_CHECK.out.reads)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
