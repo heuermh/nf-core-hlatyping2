@@ -82,9 +82,9 @@ workflow HLATYPING {
     )
     ch_versions = ch_versions.mix(FASTQC.out.versions.first())
 
-    //YARA_INDEX()
-    //YARA_MAPPER()
-    OPTITYPE(INPUT_CHECK.out.reads)
+    YARA_INDEX(params.fasta)
+    YARA_MAPPER(INPUT_CHECK.out.reads, YARA_INDEX.out.index)
+    OPTITYPE(YARA_MAPPER.out.bam)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
