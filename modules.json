@@ -4,22 +4,22 @@
     "repos": {
         "nf-core/modules": {
             "custom/dumpsoftwareversions": {
-                "git_sha": "e20e57f90b6787ac9a010a980cf6ea98bd990046"
+                "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
             "fastqc": {
-                "git_sha": "e20e57f90b6787ac9a010a980cf6ea98bd990046"
+                "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
             "multiqc": {
-                "git_sha": "d1f33be04f5d3e402398707037f56f13166df4fe"
+                "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
             "optitype": {
-                "git_sha": "e20e57f90b6787ac9a010a980cf6ea98bd990046"
+                "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
             "yara/index": {
-                "git_sha": "e20e57f90b6787ac9a010a980cf6ea98bd990046"
+                "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
             "yara/mapper": {
-                "git_sha": "e20e57f90b6787ac9a010a980cf6ea98bd990046"
+                "git_sha": "251015c8bac16ecb55d738362503f17a84c45d18"
             }
         }
     }
