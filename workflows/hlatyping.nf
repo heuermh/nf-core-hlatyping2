@@ -84,8 +84,9 @@ workflow HLATYPING {
 
     YARA_INDEX(params.fasta)
     YARA_MAPPER(INPUT_CHECK.out.reads, YARA_INDEX.out.index)
-    //OPTITYPE(YARA_MAPPER.out.bam, YARA_MAPPER.out.bai)
-    OPTITYPE(YARA_MAPPER.out.bam)
+
+    ch_indexed_bams = YARA_MAPPER.out.bam.join(YARA_MAPPER.out.bai)
+    OPTITYPE(ch_indexed_bams)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
